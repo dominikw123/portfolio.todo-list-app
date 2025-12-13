@@ -1,7 +1,7 @@
-import TodoListWrapper from "./components/TodoListWrapper";
-import TodoInput from "./components/TodoInput";
-import TodoList from "./components/TodoList";
-import type { Todo } from "./lib/types";
+import TodoListWrapper from "@/components/TodoListWrapper";
+import TodoInput from "@/components/TodoInput";
+import TodoList from "@/components/TodoList";
+import type { Todo } from "@/lib/types";
 import { useState } from "react";
 
 export default function App() {

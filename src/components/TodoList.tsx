@@ -1,4 +1,4 @@
-import type { Todo } from "../lib/types";
+import type { Todo } from "@/lib/types";
 
 export default function TodoList({ todos }: { todos: Todo[]; }) {
   return (
