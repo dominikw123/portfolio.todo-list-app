@@ -1,9 +1,11 @@
-export default function TodoList() {
+import type { Todo } from "../lib/types";
+
+export default function TodoList({ todos }: { todos: Todo[]; }) {
   return (
     <ul className="flex flex-col gap-2 list-disc list-inside ml-2">
-      <li>Todo 1</li>
-      <li>Todo 2</li>
-      <li>Todo 3</li>
+      {todos.map((todo) => (
+        <li key={todo.id}>{todo.text}</li>
+      ))}
     </ul>
   );
 }
