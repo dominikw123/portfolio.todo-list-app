@@ -10,9 +10,9 @@ type TodoItemProps = {
 export default function TodoItem({ todo, toggleTodo }: TodoItemProps) {
   return (
     <li className="flex gap-2" key={todo.id}>
-      <div className="flex gap-2">
+      <div className="flex items-center gap-2">
         <Checkbox id={todo.id} checked={todo.completed} onCheckedChange={() => toggleTodo(todo.id)} />
-        <Label htmlFor={todo.id} className={todo.completed ? "line-through" : ""}>{todo.text}</Label>
+        <Label htmlFor={todo.id} className={"text-md " + (todo.completed ? "line-through text-muted-foreground" : "")}>{todo.text}</Label>
       </div>
     </li>
   );
