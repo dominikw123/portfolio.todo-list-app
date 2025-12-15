@@ -7,9 +7,10 @@ import type { Todo } from "@/lib/types";
 type TodoItemProps = {
   todo: Todo;
   toggleTodo: (id: string) => void;
+  editTodo: (id: string, text: string) => void;
 };
 
-export default function TodoItem({ todo, toggleTodo }: TodoItemProps) {
+export default function TodoItem({ todo, toggleTodo, editTodo }: TodoItemProps) {
   return (
     <li className="flex items-center justify-between gap-2" key={todo.id}>
       <div className="flex items-center gap-2">
@@ -17,7 +18,7 @@ export default function TodoItem({ todo, toggleTodo }: TodoItemProps) {
         <Label htmlFor={todo.id} className={"text-md " + (todo.completed ? "line-through text-muted-foreground" : "")}>{todo.text}</Label>
       </div>
       <div className="flex items-center gap-1">
-        <EditTaskModal todoText={todo.text} />
+        <EditTaskModal todo={todo} editTodo={editTodo} />
         <DeleteTaskModal />
       </div>
     </li>
