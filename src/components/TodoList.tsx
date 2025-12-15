@@ -12,7 +12,7 @@ export default function TodoList({ todos, toggleTodo }: TodoListProps) {
     todos.length === 0 ? (
       <NoTasksFallback />
     ) : (
-      <ul className="flex flex-col gap-2 ml-1">
+      <ul className="flex flex-col gap-2 mx-1">
         {todos.map((todo) => (
           <TodoItem key={todo.id} todo={todo} toggleTodo={toggleTodo} />
         ))}
