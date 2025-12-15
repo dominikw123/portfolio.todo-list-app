@@ -1,4 +1,5 @@
 import EditTaskModal from "@/components/EditTaskModal";
+import DeleteTaskModal from "@/components/DeleteTaskModal";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import type { Todo } from "@/lib/types";
@@ -15,8 +16,9 @@ export default function TodoItem({ todo, toggleTodo }: TodoItemProps) {
         <Checkbox id={todo.id} checked={todo.completed} onCheckedChange={() => toggleTodo(todo.id)} />
         <Label htmlFor={todo.id} className={"text-md " + (todo.completed ? "line-through text-muted-foreground" : "")}>{todo.text}</Label>
       </div>
-      <div>
+      <div className="flex items-center gap-1">
         <EditTaskModal todoText={todo.text} />
+        <DeleteTaskModal />
       </div>
     </li>
   );
