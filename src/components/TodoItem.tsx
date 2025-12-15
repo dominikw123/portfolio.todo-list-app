@@ -8,9 +8,10 @@ type TodoItemProps = {
   todo: Todo;
   toggleTodo: (id: string) => void;
   editTodo: (id: string, text: string) => void;
+  deleteTodo: (id: string) => void;
 };
 
-export default function TodoItem({ todo, toggleTodo, editTodo }: TodoItemProps) {
+export default function TodoItem({ todo, toggleTodo, editTodo, deleteTodo }: TodoItemProps) {
   return (
     <li className="flex items-center justify-between gap-2" key={todo.id}>
       <div className="flex items-center gap-2">
@@ -19,7 +20,7 @@ export default function TodoItem({ todo, toggleTodo, editTodo }: TodoItemProps) 
       </div>
       <div className="flex items-center gap-1">
         <EditTaskModal todo={todo} editTodo={editTodo} />
-        <DeleteTaskModal />
+        <DeleteTaskModal todo={todo} deleteTodo={deleteTodo} />
       </div>
     </li>
   );
