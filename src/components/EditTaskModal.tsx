@@ -35,7 +35,7 @@ export default function EditTaskModal({ todo, editTodo }: EditTaskModalProps) {
           </DialogDescription>
         </DialogHeader>
         <div>
-          <Input type="text" placeholder="Edit task" value={text} onChange={(e) => setText(e.target.value)} />
+          <Input type="text" placeholder="Edit task" value={text} onChange={(e) => setText(e.target.value)} onKeyDown={(e) => e.key === "Enter" && handleSubmit()} />
         </div>
         <DialogFooter>
           <DialogClose asChild>
