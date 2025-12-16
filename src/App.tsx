@@ -2,10 +2,17 @@ import TodoListWrapper from "@/components/TodoListWrapper";
 import TodoInput from "@/components/TodoInput";
 import TodoList from "@/components/TodoList";
 import type { Todo } from "@/lib/types";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function App() {
-  const [todos, setTodos] = useState<Todo[]>([]);
+  const [todos, setTodos] = useState<Todo[]>(() => {
+    const stored = localStorage.getItem("todos");
+    return stored ? JSON.parse(stored) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   const addTodo = (text: string) => {
     setTodos([...todos, { id: crypto.randomUUID(), text, completed: false }]);
