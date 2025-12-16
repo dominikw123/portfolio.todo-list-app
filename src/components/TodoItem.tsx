@@ -14,9 +14,9 @@ type TodoItemProps = {
 export default function TodoItem({ todo, toggleTodo, editTodo, deleteTodo }: TodoItemProps) {
   return (
     <li className="flex items-center justify-between gap-2" key={todo.id}>
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-3">
         <Checkbox id={todo.id} checked={todo.completed} onCheckedChange={() => toggleTodo(todo.id)} />
-        <Label htmlFor={todo.id} className={"text-md " + (todo.completed ? "line-through text-muted-foreground" : "")}>{todo.text}</Label>
+        <Label htmlFor={todo.id} className={"text-md leading-tight " + (todo.completed ? "line-through text-muted-foreground" : "")}>{todo.text}</Label>
       </div>
       <div className="flex items-center gap-1">
         <EditTaskModal todo={todo} editTodo={editTodo} />
