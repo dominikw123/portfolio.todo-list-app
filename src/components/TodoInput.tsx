@@ -15,7 +15,7 @@ export default function TodoInput({ addTodo }: { addTodo: (text: string) => void
   };
 
   return (
-    <div className="flex items-center">
+    <div className="flex items-center w-full">
       <Input className="rounded-r-none p-[19px] px-4 font-medium" type="text" placeholder="What needs to be done?" value={text} onChange={(e) => setText(e.target.value)} onKeyDown={(e) => e.key === "Enter" && handleSubmit()} />
       <Button onClick={handleSubmit} size="lg" className="flex items-center justify-center gap-1 rounded-l-none">Add Task<FontAwesomeIcon icon={faPlus} /></Button>
     </div>
